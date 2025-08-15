@@ -1,102 +1,225 @@
-import Image from "next/image";
+import Image from 'next/image';
 
-export default function Home() {
+const categories = [
+  { name: "Motorized Blinds", image: "/images/categories/motorized-blinds.jpg" },
+  { name: "Roller Blinds", image: "/images/categories/roller-blinds.jpg" },
+  { name: "Roman Shades", image: "/images/categories/roman-shades.jpg" },
+  { name: "Sheer Curtains", image: "/images/categories/sheer-curtains.jpg" },
+  { name: "Curtains & Drapery", image: "/images/categories/wooden-blinds.jpg" },
+  { name: "Zebra Blinds", image: "/images/categories/zebra-blinds.jpg" },
+];
+
+export default function HomePage() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
+    <div className="font-sans text-gray-800">
+      {/* Header */}
+      <header className="sticky top-0 z-50 bg-white shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+          <div className="text-2xl font-bold">Blinds Spot</div>
+          <nav className="hidden md:flex space-x-6 text-sm">
+  <a href="#home" className="hover:text-primary">Home</a>
+  <a href="#products" className="hover:text-primary">Products</a>
+  <a href="#gallery" className="hover:text-primary">Gallery</a>
+  <a href="#why" className="hover:text-primary">Why Blinds Spot</a>
+  <a href="#contact" className="hover:text-primary">Contact</a>
+</nav>
           <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  href="https://wa.me/12016653031?text=Hi%20Blinds%20Spot%2C%20I%20want%20a%20free%20quote%20for%20my%20window%20blinds."
+  target="_blank"
+  rel="noopener noreferrer"
+  className="bg-black text-white px-4 py-2 rounded-md text-sm"
+>
+  Get Free Quote
+</a>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+      </header>
+      
+      {/* Hero Section */}
+<section id="home" className="relative h-[80vh] w-full">
+  <div className="absolute inset-0 -z-10">
+    <Image
+      src="/images/hero.jpg"
+      alt="Stylish window blinds and curtains"
+      fill
+      priority
+      sizes="100vw"
+      className="object-cover"
+    />
+  </div>
+
+  <div className="relative z-10 flex flex-col justify-center items-center text-white text-center px-4 h-full bg-black/50">
+    <h1 className="text-4xl md:text-5xl font-bold mb-4">
+      Smart Blinds & Curtains That Redefine Your Space
+    </h1>
+    <p className="text-lg mb-6 max-w-2xl">
+      Discover modern window treatments with style, automation & personalization.
+    </p>
+    <div className="flex flex-wrap justify-center gap-4">
+  <a
+    href="#products"
+    className="bg-white text-black px-6 py-3 rounded-md font-medium"
+  >
+    Explore Styles
+  </a>
+  
+  <a
+    href="https://wa.me/12016653031?text=Hi%20Blinds%20Spot%2C%20I%20want%20to%20book%20a%20free%20visit%20for%20my%20window%20blinds."
+    target="_blank"
+    rel="noopener noreferrer"
+    className="border border-white px-6 py-3 rounded-md font-medium text-white"
+  >
+    Book Free Visit
+  </a>
+</div>
+  </div>
+</section>
+
+      {/* Product Categories */}
+<section id="products" className="py-20 bg-gray-50">
+  <div className="max-w-6xl mx-auto px-4">
+    <h2 className="text-3xl font-semibold text-center mb-12">
+      Explore Our Popular Categories
+    </h2>
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      {categories.map((cat, i) => (
+        <div
+          key={i}
+          className="bg-white rounded-2xl shadow-lg overflow-hidden transition-transform transform hover:scale-105 hover:shadow-xl cursor-pointer"
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          <div className="relative h-48 w-full">
+            <Image
+              src={cat.image}
+              alt={cat.name}
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div className="p-4 text-center">
+            <h3 className="text-lg font-semibold">{cat.name}</h3>
+            <p className="text-sm text-gray-500 mt-1">Elegant & Functional</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+      {/* Why Blinds Spot */}
+      {/* Why Blinds Spot */}
+<section id="why" className="py-20 bg-white">
+  <div className="max-w-6xl mx-auto px-4 text-center">
+    <h2 className="text-3xl font-semibold mb-12">Why Blinds Spot?</h2>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {[
+        {
+          title: "All-in-One Service",
+          description: "From measurement to installation — we handle everything.",
+          icon: "🧰",
+        },
+        {
+          title: "Creative Design Team",
+          description: "Get expert help in picking modern and elegant styles.",
+          icon: "🎨",
+        },
+        {
+          title: "Smart Home Integration",
+          description: "Automate your blinds with remote and app control.",
+          icon: "📱",
+        },
+      ].map((item, i) => (
+        <div
+          key={i}
+          className="p-6 border rounded-xl shadow-sm hover:shadow-md transition hover:scale-105"
         >
+          <div className="text-4xl mb-4">{item.icon}</div>
+          <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+          <p className="text-sm text-gray-600">{item.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+      {/* Gallery */}
+      {/* Gallery */}
+<section id="gallery" className="py-20 bg-gray-50">
+  <div className="max-w-6xl mx-auto px-4 text-center">
+    <h2 className="text-3xl font-semibold mb-10">Gallery</h2>
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      {[...Array(8)].map((_, i) => (
+        <div key={i} className="relative group overflow-hidden rounded-lg">
           <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
+            src={`/images/gallery/gallery-${i + 1}.jpg`}
+            alt={`Gallery ${i + 1}`}
+            width={400}
+            height={300}
+            className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
           />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+        </div>
+      ))}
+    </div>
+    <button className="mt-10 px-6 py-2 border border-black rounded-md hover:bg-black hover:text-white transition">
+      See More Projects
+    </button>
+  </div>
+</section>
+
+      {/* Testimonials */}
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h2 className="text-3xl font-semibold mb-10">What Our Clients Say</h2>
+          <div className="space-y-6">
+            {["Amazing service & quality.", "Loved the designs and fast install.", "Smart blinds made our life easy!"].map((text, i) => (
+              <div key={i} className="p-4 border rounded-lg shadow-sm">
+                <p className="italic">“{text}”</p>
+                <p className="text-sm text-gray-500 mt-2">– Client {i + 1}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+<section className="py-16 bg-black text-white text-center">
+  <h2 className="text-3xl font-semibold mb-4">
+    Ready to transform your windows?
+  </h2>
+  <p className="mb-6">
+    Get a personalized design + free consultation today.
+  </p>
+  <a
+    href="https://wa.me/12016653031?text=Hi%20Blinds%20Spot%2C%20I%20am%20interested%20in%20transforming%20my%20windows.%20Please%20share%20more%20details."
+    target="_blank"
+    rel="noopener noreferrer"
+    className="bg-white text-black px-6 py-3 rounded-md inline-block"
+  >
+    Book Now on WhatsApp
+  </a>
+</section>
+
+      {/* Footer */}
+      <footer id="contact" className="py-10 bg-gray-900 text-white text-sm">
+        <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div>
+            <h4 className="font-bold text-lg mb-2">Blinds Spot</h4>
+            <p>One-stop solution for creative window interiors.</p>
+          </div>
+          <div>
+            <h4 className="font-semibold mb-2">Quick Links</h4>
+            <ul className="space-y-1">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Products</a></li>
+              <li><a href="#">Gallery</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-semibold mb-2">Contact</h4>
+            <p>Email: blindsspot.us@gmail.com</p>
+            <p>Phone: +1-201-665-3031</p>
+            <p>Instagram: @blindsspot</p>
+          </div>
+        </div>
       </footer>
     </div>
   );
