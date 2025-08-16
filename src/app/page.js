@@ -15,7 +15,16 @@ export default function HomePage() {
       {/* Header */}
       <header className="sticky top-0 z-50 bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="text-2xl font-bold">Blinds Spot</div>
+          <div className="flex items-center space-x-2">
+  <Image
+    src="/logo.png" // make sure you place your logo inside public/logo.png
+    alt="Blinds Spot Logo"
+    width={40}
+    height={40}
+    className="object-contain"
+  />
+  <span className="text-2xl font-bold">Blinds Spot</span>
+</div>
           <nav className="hidden md:flex space-x-6 text-sm">
   <a href="#home" className="hover:text-primary">Home</a>
   <a href="#products" className="hover:text-primary">Products</a>
@@ -158,9 +167,15 @@ export default function HomePage() {
         </div>
       ))}
     </div>
-    <button className="mt-10 px-6 py-2 border border-black rounded-md hover:bg-black hover:text-white transition">
-      See More Projects
-    </button>
+    <a
+  href="https://www.instagram.com/blindsspot.us?igsh=aThkamRjbWFmc2gz&utm_source=qr"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <button className="mt-10 px-6 py-2 border border-black rounded-md hover:bg-black hover:text-white transition">
+    See More Projects
+  </button>
+</a>
   </div>
 </section>
 
