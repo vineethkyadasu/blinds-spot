@@ -14,15 +14,14 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Blinds Spot – Smart Blinds & Curtains",
   description: "Premium blinds and curtains with smart automation and elegant designs.",
+  icons: {
+    icon: "/favicon2.ico",
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" type="image/png" href="/logo.png" />
-      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
